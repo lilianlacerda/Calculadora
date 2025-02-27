@@ -65,7 +65,7 @@
                     resultado = numero1 / numero2;
             }
                 else {
-                    Console.WriteLine("0 não pode ser dividido");
+                    Console.WriteLine("0 não pode ser dividido!");
                 }
 
             return resultado;

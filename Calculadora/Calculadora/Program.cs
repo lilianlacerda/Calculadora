@@ -1,76 +1,122 @@
-﻿namespace Calculadora
+using System.Diagnostics.Metrics;
+
+namespace Calculadora
 {
     internal class Program
     {
+        <<<<<<< feature/multiplicacao-divisao
         static void Main(string[] args)
         {
-            double operador = 1;
-            double resultado = 0;
 
-            while (operador != 0 && operador < 6)
+            bool continuar = true;
+
+            while (continuar)
             {
-                Console.WriteLine("Digite o tipo de opeção que deseja fazer: ");
-                Console.WriteLine("1 - Adição");
-                Console.WriteLine("2 - Subtração");
-                Console.WriteLine("3 - Multiplicação");
-                Console.WriteLine("4 - Divisão");
+                Console.Clear();
 
-                operador = double.Parse(Console.ReadLine());
+                Console.WriteLine("Qual operação você deseja fazer?");
+                Console.WriteLine("1-Adição");
+                Console.WriteLine("2-Subtração");
+                Console.WriteLine("3-Multiplicação");
+                Console.WriteLine("4-Divisão");
+
+
+                int operacao;
+                bool operacaoValida = int.TryParse(Console.ReadLine(), out operacao);
+
+                if (!operacaoValida)
+                {
+                    Console.WriteLine("Por favor, insira um número válido.");
+                    continue;
+                }
+
+                if (operacao == 6)
+                {
+                    break;
+                    continuar = false;
+                }
 
                 Console.WriteLine("Digite o primeiro número: ");
-                double primeiroNumero = double.Parse(Console.ReadLine());
+                int numero1 = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Digite o segundo número: ");
-                double segundoNumero = double.Parse(Console.ReadLine());
+                int numero2 = int.Parse(Console.ReadLine());
 
-                switch (operador)
+                int resultado = 0;
+
+                switch (operacao)
                 {
+                    case 1:
+                        resultado = Adicao(numero1, numero2);
+                        break;
+                    case 2:
+                        resultado = Subtracao(numero1, numero2);
+                        break;
                     case 3:
-                        {
-                            resultado = Multiplicacao(primeiroNumero, segundoNumero);
+                            resultado = Multiplicacao(numero1, numero2);
                             break;
-                        }
                     case 4:
-                        {
-                            resultado = Divisao(primeiroNumero, segundoNumero);
+                            resultado = Divisao(numero1, numero2);
                             break;
-                        }
+                    case 5:
+                        Console.WriteLine("Escolha outra operação.");
+                        continue;
                     default:
-                        {
-                            Console.WriteLine("Operação Inválida");
-                            break;
-                        }
+                        Console.WriteLine("Número inválido, digite um número de 1 a 4.");
+                        break;
                 }
 
-                Console.WriteLine($"O resultado entre {primeiroNumero} e {segundoNumero} é igual a {resultado}");
+                Console.WriteLine($"O resultado entre {numero1} e {numero2} é igual a {resultado}");
 
-                    Console.WriteLine("Gostaria de fazer mais uma operação?");
-                    Console.WriteLine("5 - Sim");
-                    Console.WriteLine("0 - Sair");
-                    operador = double.Parse(Console.ReadLine());
-                
-            }
-            }
-        static double Multiplicacao(double numero1, double numero2)
+            
+
+
+            Console.WriteLine("Deseja fazer outra operação?");
+            Console.WriteLine("1 - Voltar à tela inicial");
+            Console.WriteLine("2 - Sair");
+            int escolhaFinal = int.Parse(Console.ReadLine());
+
+            if (escolhaFinal == 2)
             {
-                double resultado;
-                resultado = numero1 * numero2;
-                return resultado;
+                continuar = false;
             }
 
-        static double Divisao(double numero1, double numero2)
+            Console.WriteLine("Obrigado por usar a calculadora!");
+        }
+        }
+
+        public static int Adicao(int numero1, int numero2)
+        {
+            return numero1 + numero2;
+        }
+
+        public static int Subtracao(int numero1, int numero2)
+        {
+            return numero1 - numero2;
+        }
+
+        static int Multiplicacao(int numero1, int numero2)
+        {
+
+            return numero1 * numero2;
+        }
+
+        static int Divisao(int numero1, int numero2)
+        {
+            int resultado = 0;
+            if (numero2 != 0)
             {
-                double resultado = 0;
-                if (numero2 != 0) {
-                    resultado = numero1 / numero2;
+                resultado = numero1 / numero2;
             }
-                else {
-                    Console.WriteLine("0 não pode ser dividido!");
-                }
+            else
+            {
+                Console.WriteLine("0 não pode ser dividido!");
+            }
 
             return resultado;
+            >>>>>>> master
         }
+}
 
 
     }
-}

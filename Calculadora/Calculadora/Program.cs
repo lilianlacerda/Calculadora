@@ -4,10 +4,8 @@ namespace Calculadora
 {
     internal class Program
     {
-        <<<<<<< feature/multiplicacao-divisao
         static void Main(string[] args)
         {
-
             bool continuar = true;
 
             while (continuar)
@@ -19,7 +17,6 @@ namespace Calculadora
                 Console.WriteLine("2-Subtração");
                 Console.WriteLine("3-Multiplicação");
                 Console.WriteLine("4-Divisão");
-
 
                 int operacao;
                 bool operacaoValida = int.TryParse(Console.ReadLine(), out operacao);
@@ -53,11 +50,11 @@ namespace Calculadora
                         resultado = Subtracao(numero1, numero2);
                         break;
                     case 3:
-                            resultado = Multiplicacao(numero1, numero2);
-                            break;
+                        resultado = Multiplicacao(numero1, numero2);
+                        break;
                     case 4:
-                            resultado = Divisao(numero1, numero2);
-                            break;
+                        resultado = Divisao(numero1, numero2);
+                        break;
                     case 5:
                         Console.WriteLine("Escolha outra operação.");
                         continue;
@@ -66,14 +63,12 @@ namespace Calculadora
                         break;
                 }
 
-                Console.WriteLine($"O resultado entre {numero1} e {numero2} é igual a {resultado}");
-
-            
-
+            Console.WriteLine($"O resultado entre {numero1} e {numero2} é igual a {resultado}");
 
             Console.WriteLine("Deseja fazer outra operação?");
             Console.WriteLine("1 - Voltar à tela inicial");
             Console.WriteLine("2 - Sair");
+
             int escolhaFinal = int.Parse(Console.ReadLine());
 
             if (escolhaFinal == 2)
@@ -82,7 +77,7 @@ namespace Calculadora
             }
 
             Console.WriteLine("Obrigado por usar a calculadora!");
-        }
+            }
         }
 
         public static int Adicao(int numero1, int numero2)
@@ -114,9 +109,6 @@ namespace Calculadora
             }
 
             return resultado;
-            >>>>>>> master
         }
-}
-
-
     }
+}
